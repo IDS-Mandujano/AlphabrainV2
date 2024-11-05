@@ -1,0 +1,15 @@
+<div class="bg-[#637081] flex flex-col w-full min-h-screen">
+  <div *ngIf="!isAuthenticated">
+      <app-login *ngIf="isLogin" (toggleForm)="toggleForm()" (authenticated)="onAuthenticated($event)"></app-login>
+      <app-register *ngIf="!isLogin" (toggleForm)="toggleForm()" (authenticated)="onAuthenticated($event)"></app-register>
+  </div>
+  <div *ngIf="isAuthenticated">
+      <app-header [user]="user" (viewChange)="setView($event)"></app-header>
+      <ng-container [ngSwitch]="currentView">
+          <app-dashboard-video *ngSwitchCase="'dashboard'"></app-dashboard-video>
+          <app-upload-video *ngSwitchCase="'upload'"></app-upload-video>
+          <app-user-profile *ngSwitchCase="'profile'" [user]="user"></app-user-profile>
+          <app-dashboard-video *ngSwitchDefault></app-dashboard-video>
+      </ng-container>
+  </div>
+</div>

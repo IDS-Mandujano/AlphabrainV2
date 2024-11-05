@@ -1,0 +1,5 @@
+.gradient-background {
+    background: linear-gradient(to bottom , #B1B1B1, #2B3E57);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

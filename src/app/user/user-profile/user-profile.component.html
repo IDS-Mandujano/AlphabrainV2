@@ -1,0 +1,31 @@
+<div *ngIf="user" class="max-w-md mx-auto p-8 bg-[#7C98B3] shadow-lg rounded-lg space-y-6">
+  <div class="flex flex-col items-center space-y-4">
+    <ng-container *ngIf="user.photoUrl; else defaultPhoto">
+      <img
+        [src]="user.photoUrl"
+        alt="User photo"
+        class="w-32 h-32 rounded-full object-cover border border-gray-400"
+      />
+    </ng-container>
+    <ng-template #defaultPhoto>
+      <div class="w-32 h-32 flex items-center justify-center rounded-full bg-gray-200 text-gray-500 text-2xl font-semibold">
+        U
+      </div>
+    </ng-template>
+
+    <h2 class="text-3xl font-bold text-gray-800">User Profile</h2>
+    <p class="text-xl text-white"><strong>Username:</strong> {{ user.username }}</p>
+    <p class="text-xl text-white"><strong>Email:</strong> {{ user.correo }}</p>
+  </div>
+
+  <button
+    (click)="logout()"
+    class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg"
+  >
+    Cerrar sesión
+  </button>
+</div>
+
+<div *ngIf="!user" class="max-w-md mx-auto p-8 bg-white shadow-lg rounded-lg text-center">
+  <p class="text-xl text-gray-700">No user information available.</p>
+</div>

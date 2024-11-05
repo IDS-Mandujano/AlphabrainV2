@@ -1,0 +1,41 @@
+<div class="flex flex-col items-center justify-center w-full h-full">
+  <form (ngSubmit)="onSubmit()" class="w-full max-w-md bg-[#7C98B3] rounded-lg shadow-lg p-6"> 
+      <div class="text-center mb-8 flex flex-col items-center">
+          <img src="/logo.png" alt="logo" class="h-30 w-40 mb-4">
+          <h2 class="text-2xl font-bold text-white">Alphabrain</h2>
+      </div>
+      <div class="mb-6">
+          <label for="email" class="block text-sm font-medium text-white">Correo electrónico</label>
+          <input 
+              type="email" 
+              placeholder="example@gmail.com" 
+              [(ngModel)]="email" 
+              name="email" 
+              required 
+              class="mt-1 block w-full border-b border-white bg-transparent text-white placeholder-white focus:outline-none focus:border-blue-500" 
+          >
+      </div>
+      <div class="mb-6">
+          <label for="password" class="block text-sm font-medium text-white">Contraseña</label>
+          <input 
+              type="password" 
+              placeholder="pass" 
+              [(ngModel)]="password" 
+              name="password" 
+              required 
+              class="mt-1 block w-full border-b border-white bg-transparent text-white placeholder-white focus:outline-none focus:border-blue-500" 
+          >
+      </div>
+      <div class="mb-4 text-center">
+          <p class="text-sm text-white">¿No tienes cuenta?
+            <span (click)="onToggleForm()" class="text-blue-400 hover:underline cursor-pointer"> Registrarse</span>
+          </p>
+      </div>
+      <div class="flex justify-center">
+          <button type="submit"
+              class="bg-[#536B78] text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"> <!-- Color de fondo personalizado -->
+              Iniciar Sesión
+          </button>
+      </div>
+  </form>
+</div>

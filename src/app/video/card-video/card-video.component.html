@@ -1,0 +1,15 @@
+<div class="flex p-4 bg-[#7C98B3] shadow-2xl rounded-lg space-y-6">
+    <div class="flex-shrink-0">
+        <video controls class="w-full h-80 rounded-lg" [src]="video.video_url">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+    <div class="video-details flex-1 ml-4 flex flex-col justify-start">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2 tracking-wide">{{ video.title }}</h2>
+        <p class="text-base text-white font-medium mb-4">{{ video.description }}</p>
+        <div class="mt-auto flex justify-between text-sm text-gray-200">
+            <p>Autor: Eduardo</p>
+            <p>{{ video.created_at | date:'dd/MM/yyyy' }}</p>
+        </div>
+    </div>
+</div>

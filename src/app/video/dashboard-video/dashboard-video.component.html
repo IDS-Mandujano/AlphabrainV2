@@ -1,0 +1,9 @@
+<div class="flex flex-col p-4 min-h-screen">
+    <div class="video-container space-y-4 w-full max-w-6xl mx-auto">
+        <ul class="space-y-4 w-full">
+            <li *ngFor="let video of videos">
+                <app-card-video [video]="video"></app-card-video>
+            </li>
+        </ul>
+    </div>
+</div>
