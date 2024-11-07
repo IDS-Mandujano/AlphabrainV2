@@ -4,7 +4,9 @@ import { UploadVideoComponent } from './upload-video/upload-video.component';
 import { CardVideoComponent } from './card-video/card-video.component';
 import { DashboardVideoComponent } from './dashboard-video/dashboard-video.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { DeleteVideoComponent } from './delete-video/delete-video.component';
+import { UpdateVideoComponent } from './update-video/update-video.component'
 
 
 
@@ -12,7 +14,9 @@ import { FormsModule } from '@angular/forms'
   declarations: [
     UploadVideoComponent,
     CardVideoComponent,
-    DashboardVideoComponent
+    DashboardVideoComponent,
+    DeleteVideoComponent,
+    UpdateVideoComponent
   ],
   imports: [
     CommonModule,
