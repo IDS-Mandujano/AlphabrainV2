@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../../security/models/iuser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -22,12 +23,24 @@ export class LoginComponent {
         console.log('Login exitoso, usuario recibido:', user);
         if (user) {
           this.authenticated.emit(user);
+          Swal.fire({
+            title: '¡Bienvenido!',
+            text: 'Inicio de sesión exitoso.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
         } else {
           console.warn('El usuario es undefined o null');
         }
       },
       (error) => {
         console.error('Error al iniciar sesión', error);
+        Swal.fire({
+          title: '¡Error!',
+          text: 'Las credenciales no son válidas. Por favor, intenta nuevamente.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        });
       }
     );
   }

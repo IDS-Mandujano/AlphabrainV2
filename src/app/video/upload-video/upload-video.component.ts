@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { VideoUploadService } from '../services/video-upload.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-upload-video',
@@ -24,15 +25,33 @@ export class UploadVideoComponent {
     if (this.videoFile && this.title && this.description) {
       this.videoUploadService.uploadVideo(this.videoFile, this.title, this.description).subscribe(
         response => {
-          console.log('Video uploaded successfully', response);
+          Swal.fire({
+            title: '¡Éxito!',
+            text: 'El video se subió correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Cerrar'
+          });
           this.resetForm();
         },
         error => {
+
+          Swal.fire({
+            title: '¡Error!',
+            text: 'Hubo un problema al subir el video. Por favor, inténtalo de nuevo.',
+            icon: 'error',
+            confirmButtonText: 'Cerrar'
+          });
           console.error('Error uploading video', error);
         }
       );
     } else {
-      alert('Por favor completa todos los campos y selecciona un archivo de video.');
+
+      Swal.fire({
+        title: '¡Advertencia!',
+        text: 'Por favor completa todos los campos y selecciona un archivo de video.',
+        icon: 'warning',
+        confirmButtonText: 'Cerrar'
+      });
     }
   }
 

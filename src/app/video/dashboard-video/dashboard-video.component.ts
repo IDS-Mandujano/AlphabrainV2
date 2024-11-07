@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../services/video.service';
 import { IVideo } from '../models/ivideo';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard-video',
@@ -20,9 +21,22 @@ export class DashboardVideoComponent implements OnInit {
     this.videoService.getVideos().subscribe(
       (data: IVideo[]) => {
         this.videos = data;
-        console.log(data)
+        console.log(data);
+
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'Los videos se cargaron correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Cerrar'
+        });
       },
       (error) => {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'Hubo un problema al cargar los videos. Intenta nuevamente.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        });
         console.error('Error al cargar videos', error);
       }
     );
