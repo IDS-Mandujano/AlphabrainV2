@@ -5,7 +5,6 @@ import { CardVideoComponent } from './card-video/card-video.component';
 import { DashboardVideoComponent } from './dashboard-video/dashboard-video.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { DeleteVideoComponent } from './delete-video/delete-video.component';
 import { UpdateVideoComponent } from './update-video/update-video.component'
 
 
@@ -15,7 +14,6 @@ import { UpdateVideoComponent } from './update-video/update-video.component'
     UploadVideoComponent,
     CardVideoComponent,
     DashboardVideoComponent,
-    DeleteVideoComponent,
     UpdateVideoComponent
   ],
   imports: [

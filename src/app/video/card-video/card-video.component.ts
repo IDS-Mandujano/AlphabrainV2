@@ -1,5 +1,4 @@
-// card-video.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IVideo } from '../models/ivideo';
 import { VideoService } from '../services/video.service';
 import Swal from 'sweetalert2';
@@ -11,14 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class CardVideoComponent {
   @Input() video!: IVideo;
+  @Output() videoUpdated = new EventEmitter<void>();
   isEditModalOpen = false;
 
   constructor(private videoService: VideoService) {}
-
-  ngOnInit() {
-    console.log('Video URL:', this.video.video_url);
-    console.log('Description: ', this.video.description);
-  }
 
   openEditModal() {
     this.isEditModalOpen = true;
@@ -30,12 +25,7 @@ export class CardVideoComponent {
 
   onVideoUpdated() {
     this.closeEditModal();
-    Swal.fire({
-      title: 'Actualizado',
-      text: 'El video ha sido actualizado exitosamente.',
-      icon: 'success',
-      confirmButtonText: 'Cerrar'
-    });
+    this.videoUpdated.emit();
   }
 
   deleteVideo(id: number) {
@@ -58,6 +48,7 @@ export class CardVideoComponent {
               icon: 'success',
               confirmButtonText: 'Cerrar'
             });
+            this.videoUpdated.emit();
           },
           error: (error) => {
             console.error('Error al eliminar el video:', error);

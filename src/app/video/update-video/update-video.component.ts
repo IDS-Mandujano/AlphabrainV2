@@ -1,15 +1,14 @@
-// update-video.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { VideoService } from '../services/video.service';
 import { IVideo } from '../models/ivideo';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-update-video',  // Actualizamos el selector
-  templateUrl: './update-video.component.html',  // Actualizamos el nombre del archivo de plantilla
+  selector: 'app-update-video',
+  templateUrl: './update-video.component.html',
   styleUrls: ['./update-video.component.css']
 })
-export class UpdateVideoComponent {  // Cambiamos el nombre de la clase a UpdateVideoComponent
+export class UpdateVideoComponent {
   @Input() video!: IVideo;
   @Output() videoUpdated = new EventEmitter<void>();
 

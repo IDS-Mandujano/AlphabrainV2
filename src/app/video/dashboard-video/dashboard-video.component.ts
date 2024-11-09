@@ -22,23 +22,20 @@ export class DashboardVideoComponent implements OnInit {
       (data: IVideo[]) => {
         this.videos = data;
         console.log(data);
-
-        Swal.fire({
-          title: '¡Éxito!',
-          text: 'Los videos se cargaron correctamente.',
-          icon: 'success',
-          confirmButtonText: 'Cerrar'
-        });
       },
       (error) => {
+        console.error('Error al cargar videos', error);
         Swal.fire({
           title: '¡Error!',
           text: 'Hubo un problema al cargar los videos. Intenta nuevamente.',
           icon: 'error',
           confirmButtonText: 'Cerrar'
         });
-        console.error('Error al cargar videos', error);
       }
     );
+  }
+
+  onVideoUpdated(): void {
+    this.loadVideos();
   }
 }
