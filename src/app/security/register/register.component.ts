@@ -25,12 +25,13 @@ export class RegisterComponent {
       correo: this.correo,
       contrasena: this.contrasena
     };
-
+  
     this.registerService.register(user).subscribe({
       next: (response) => {
         console.log('Usuario registrado, usuario recibido:', response.user);
+        localStorage.setItem('user', JSON.stringify(response.user));
         this.authenticated.emit(response.user);
-
+  
         Swal.fire({
           title: '¡Registrado con éxito!',
           text: 'El usuario ha sido registrado correctamente.',
@@ -40,7 +41,7 @@ export class RegisterComponent {
       },
       error: (error) => {
         console.error('Error al registrar el usuario:', error);
-
+  
         Swal.fire({
           title: '¡Error!',
           text: 'Hubo un problema al registrar el usuario. Por favor, inténtalo de nuevo.',
@@ -49,7 +50,7 @@ export class RegisterComponent {
         });
       }
     });
-  }
+  }  
 
   onToggleForm() {
     this.toggleForm.emit();

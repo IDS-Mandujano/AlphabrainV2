@@ -1,17 +1,19 @@
 <nav class="p-8">
     <div class="flex items-center justify-between mb-16">
+        
         <div class="flex items-center justify-center flex-grow space-x-3">
             <img src="/logo.png" alt="Logo" class="w-30 h-20">
             <p class="text-white text-2xl font-semibold">Alphabrain</p>
         </div>
 
-        <div class="flex items-start mr-9 font-bold">
+        <div class="flex items-center font-bold">
             <p class="text-white text-lg">{{ user?.username }}</p>
         </div>
     </div>
 
-    <div class="container mx-auto flex justify-center">
+    <div class=" mx-auto flex justify-center">
         <ul class="flex space-x-12">
+
             <li class="relative group">
                 <span (click)="changeView('dashboard')" class="text-white flex items-center space-x-3 text-lg cursor-pointer">
                     <span class="icon"><img src="/home.png" alt="" class="w-6 h-6"></span>
@@ -19,6 +21,7 @@
                 </span>
                 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></div>
             </li>
+
             <li class="relative group">
                 <span (click)="changeView('upload')" class="text-white flex items-center space-x-3 text-lg cursor-pointer">
                     <span class="icon"><img src="/upload.png" alt="" class="w-6 h-6"></span>
@@ -26,6 +29,7 @@
                 </span>
                 <div class="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></div>
             </li>
+
             <li class="relative group">
                 <span (click)="changeView('profile')" class="text-white flex items-center space-x-3 text-lg cursor-pointer">
                     <span class="icon"><img src="/user.png" alt="" class="w-6 h-6"></span>

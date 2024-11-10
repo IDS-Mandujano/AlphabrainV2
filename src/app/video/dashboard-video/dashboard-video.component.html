@@ -1,12 +1,9 @@
 <div class="flex flex-col p-4 min-h-screen">
-    <div class="video-container space-y-4 w-full max-w-6xl mx-auto">
-      <ul class="space-y-4 w-full">
-        <li *ngFor="let video of videos">
-          <app-card-video 
-            [video]="video"
-            (videoUpdated)="onVideoUpdated()">
-          </app-card-video>
-        </li>
-      </ul>
-    </div>
-  </div>  
+  <div class="video-container space-y-4 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+    <ul class="space-y-4 w-full">
+      <li *ngFor="let video of videos">
+        <app-card-video [video]="video" (videoUpdated)="onVideoUpdated()"></app-card-video>
+      </li>
+    </ul>
+  </div>
+</div>

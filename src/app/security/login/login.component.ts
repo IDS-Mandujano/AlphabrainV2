@@ -22,6 +22,7 @@ export class LoginComponent {
       (user) => {
         console.log('Login exitoso, usuario recibido:', user);
         if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
           this.authenticated.emit(user);
           Swal.fire({
             title: '¡Bienvenido!',
@@ -43,7 +44,7 @@ export class LoginComponent {
         });
       }
     );
-  }
+  }  
 
   onToggleForm() {
     this.toggleForm.emit();
